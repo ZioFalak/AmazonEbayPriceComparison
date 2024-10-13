@@ -23,7 +23,10 @@ class AmazonCrawler:
         print(amazon_link)
 
         # Set up Selenium WebDriver
-        driver = webdriver.Chrome()
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--disable-images')
+        chrome_options.add_argument('--headless')
+        driver = webdriver.Chrome(options=chrome_options)
         driver.get(amazon_link)
 
         # accept cookies
